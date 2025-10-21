@@ -44,4 +44,29 @@ const bookStore = {
 }
 
 // Write your code here!
+const bookStoreTitle = document.querySelector("#header"); //select h1 element
 
+bookStoreTitle.textContent = bookStore.name; //change h1 to title of bookstore
+
+for(let i = [0]; i < bookStore.books.length; i++) { //for loop to loop over each book in bookStore array
+    const book = bookStore.books[i];
+
+    const bookContainer = document.createElement("li"); //create new li
+    const bookTitle = document.createElement("h3"); //create new h3
+    const bookAuthor = document.createElement("p"); //create new p
+    const bookImage = document.createElement("img"); //create new img
+
+    bookTitle.textContent = book.title; //change text content of each element to reflect the bookstore array
+    bookAuthor.textContent = book.author;
+    bookImage.src = book.imageUrl;
+
+    bookContainer.append(bookTitle); //append the new elements to the book container
+    bookContainer.append(bookAuthor);
+    bookContainer.append(bookImage);
+
+    const bookList = document.querySelector("#book-list"); //select ul element
+    bookList.append(bookContainer);     //append the new container to the DOM
+};
+
+const exampleBook = document.querySelector("#delete-this"); //remove the example book from the list.
+exampleBook.remove();
